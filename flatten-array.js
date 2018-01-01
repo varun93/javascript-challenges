@@ -2,11 +2,8 @@ const flattenArray = array => {
   return array.reduce((acc, element, index) => {
     if (Array.isArray(element)) {
       element = flattenArray(element);
-      acc.push(...element);
-    } else {
-      acc.push(element);
     }
-
+    acc = acc.concat(element);
     return acc;
   }, []);
 };
