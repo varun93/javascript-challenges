@@ -3,8 +3,7 @@ const flattenArray = array => {
     if (Array.isArray(element)) {
       element = flattenArray(element);
     }
-    acc = acc.concat(element);
-    return acc;
+    return acc.concat(element);
   }, []);
 };
 
