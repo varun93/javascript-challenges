@@ -1,23 +1,20 @@
+const findNode = (tree, value) => {
+  let found = false;
 
-const findNode = (tree,value) => {
-		
-    let found = false ;
-	 
-    if (tree.value === value) {
- 			 return true;
+  if (tree.value === value) {
+    return true;
+  }
+
+  for (var index = 0; index < tree.children.length; index++) {
+    const element = tree.children[index];
+    found = findNode(element, value);
+    if (found) {
+      break;
     }
+  }
 
-		 for(var index=0;index< tree.children.length;index++)  {
-    	  const element = tree.children[index];
-        found = findNode(element,value);
-   			if(found){
-					break;
-				}
-   };
-    
-   return found;
-}
-
+  return found;
+};
 
 /* example tree
 
