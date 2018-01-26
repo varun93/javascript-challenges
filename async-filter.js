@@ -1,3 +1,4 @@
+// simulating a async call
 const asyncCall = async element => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
