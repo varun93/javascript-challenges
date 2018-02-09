@@ -16,3 +16,5 @@ const connect = (ChildComponent, mapStateToProps, mapDispatchToProps) => {
     }
 
 };
+
+export default connect;
