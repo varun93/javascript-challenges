@@ -13,17 +13,15 @@ const isReachable = (currentX, currentY, i, j) => {
 };
 
 const iterateMatrix = (matrix, i, j, paths = []) => {
-  if (i > ROWS-1) {
+  if (i >= ROWS) {
     return;
   }
-  if (j > COLUMNS - 1) {
+  if (j >= COLUMNS) {
     i = i + 1;
     j = 0;
   }
-  if (i < ROWS && j < COLUMNS) {
-    if (isReachable(currentX, currentY, i, j)) {
+  if (i < ROWS && j < COLUMNS && isReachable(currentX, currentY, i, j)) {
       paths.push([i, j]);
-    }
   }
 
   iterateMatrix(matrix, i, j + 1, paths);
