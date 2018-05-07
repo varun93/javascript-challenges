@@ -1,18 +1,15 @@
-const combinations = (n) => {
-    if (n == 0) {
-        result.push(combination);
-        return;
+const printBinary = (n, result) => {
+   if (n === 0) {
+        console.log(result)
     }
-    combination = combination.concat(0);
-    combinations(n - 1);
-    combination = combination.slice(0, combination.length - 1);
-    combination = combination.concat(1);
-    combinations(n - 1);
-    combination = combination.slice(0, combination.length - 1);
+    else {
+        result = result.concat(0);
+        printBinary(n - 1, result);
+        // unchoose 0; and choose 1
+        result = result.slice(0, result.length - 1);
+        result = result.concat(1);
+        printBinary(n - 1, result);
+    }
 }
 
-const n = 2;
-const result = [];
-let combination = [];
-combinations(n);
-console.log(result);
+printBinary(3, []);
