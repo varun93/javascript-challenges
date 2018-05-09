@@ -2,7 +2,7 @@
 
 import React,{Component} from "react";
 
-const connect = (ChildComponent, mapStateToProps, mapDispatchToProps) => {
+const connect = (mapStateToProps, mapDispatchToProps) => (ChildComponent) => {
 
     return class Container extends Component{
 
