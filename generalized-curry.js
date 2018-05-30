@@ -2,20 +2,12 @@ const curry = (fn) => {
     if (fn.length === 0) {
         return fn;
     }
-    const args = [];
-    const nest = () => {
+    const nest = (args) => {
         return (...ags) => {
             args.push(...ags);
-            return args.length === fn.length ? fn(...args) : nest();
+            return args.length === fn.length ? fn(...args) : nest(args);
         }
     };
-    return nest();
+    return nest([]);
 }
 
-// final function
-const sum = curry((x, y, z, a, b) => {
-    return x + y + z + a + b;
-});
-
-const total = sum(1)(2)(3)(4, 5);
-console.log(total);
