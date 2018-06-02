@@ -1,10 +1,5 @@
 const balancedParanthesis = (N, paranthesis = [], openCount, closedCount) => {
-  if (
-    closedCount > openCount ||
-    paranthesis.length > 2 * N ||
-    openCount > N ||
-    closedCount > N
-  ) {
+  if (closedCount > openCount || openCount > N || closedCount > N) {
     return;
   }
   if (paranthesis.length === 2 * N) {
@@ -21,4 +16,3 @@ const balancedParanthesis = (N, paranthesis = [], openCount, closedCount) => {
 
 const N = 3;
 balancedParanthesis(N, [], 0, 0);
-
