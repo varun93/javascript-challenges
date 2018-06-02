@@ -1,38 +1,24 @@
-const frequency = (string, character) => {
-  return string.split("").reduce((count, c) => {
-    return count + (c == character ? 1 : 0);
-  }, 0);
-};
-
-const validParantheses = (N, store = "") => {
-  const openBracketCount = frequency(store, "(");
-  const closedBracketCount = frequency(store, ")");
-
+const balancedParanthesis = (N, paranthesis = [], openCount, closedCount) => {
   if (
-    openBracketCount > N ||
-    closedBracketCount > N ||
-    closedBracketCount > openBracketCount
+    closedCount > openCount ||
+    paranthesis.length > 2 * N ||
+    openCount > N ||
+    closedCount > N
   ) {
     return;
   }
-
-  if (store.length === 2 * N) {
-    console.log(store);
+  if (paranthesis.length === 2 * N) {
+    console.log(paranthesis.join(""));
     return;
-  } else {
-    validParantheses(N, store + "(");
-    validParantheses(N, store + ")");
   }
+
+  paranthesis = paranthesis.concat("(");
+  balancedParanthesis(N, paranthesis, openCount + 1, closedCount);
+  paranthesis = paranthesis.slice(0, paranthesis.length - 1);
+  paranthesis = paranthesis.concat(")");
+  balancedParanthesis(N, paranthesis, openCount, closedCount + 1);
 };
 
-let count = 0,
-  calls = 0;
-console.log(validParantheses(3, ""));
-console.log(count, calls);
-/*
-Parantheses Conditions
-1) Open < Count/2
-2) Closed < Count/2
-3) Open >= Closed
-4) Open === Closed return;
-*/
+const N = 3;
+balancedParanthesis(N, [], 0, 0);
+
