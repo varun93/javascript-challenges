@@ -13,7 +13,7 @@ const partiton = (array, low, high) => {
     while (array[i] < pivotElement) {
       i++;
     }
-    while (array[j] > pivotElement) {
+    while (array[j] >= pivotElement) {
       j--;
     }
     if (i > j) {
@@ -27,11 +27,11 @@ const partiton = (array, low, high) => {
 };
 
 const quickSort = (array, low, high) => {
-  let pivotIndex = partiton(array, low, high);
-  if (low < high) {
-    // console.log(array.slice(low, i));
-    // console.log(array.slice(i + 1, high + 1));
-    // console.log("=========End of Iteration with pivot " + i + " =============");
+  console.log(array, low, high);
+  if (low > high) {
+    return;
+  } else {
+    const pivotIndex = partiton(array, low, high);
     quickSort(array, low, pivotIndex - 1);
     quickSort(array, pivotIndex + 1, high);
   }
