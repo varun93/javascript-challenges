@@ -27,7 +27,6 @@ const partiton = (array, low, high) => {
 };
 
 const quickSort = (array, low, high) => {
-  console.log(array, low, high);
   if (low > high) {
     return;
   } else {
