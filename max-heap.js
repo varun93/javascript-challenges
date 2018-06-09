@@ -12,6 +12,13 @@ const getParentIndex = childIndex => {
     return Math.floor((childIndex - 1) / 2);
 };
 
+const getLeftChildIndex = (index) => {
+    return index * 2 + 1;
+}
+const getRightChildIndex = (index) => {
+    return index * 2 + 2;
+}
+
 const isRootNode = index => {
     return index === 0;
 };
@@ -33,8 +40,8 @@ const heapifyUp = (array, index) => {
 
 const heapifyDown = (array, index) => {
     const element = array[index];
-    const leftChildIndex = index * 2 + 1;
-    const rightChildIndex = index * 2 + 2;
+    const leftChildIndex = getLeftChildIndex(index);
+    const rightChildIndex = getRightChildIndex(index);
     const leftChildElement = array[leftChildIndex];
     const rightChildElement = array[rightChildIndex];
     if (isEmpty(leftChildElement) && isEmpty(rightChildElement)) {
@@ -71,12 +78,16 @@ const buildHeap = (array, element) => {
 
 // const heap = [0, 1, 2, 3, 4, 5, 6];
 // buildHeap(heap);
-//insertNode(heap, 7);
-//insertNode(heap, 8);
-// insertNode(heap, 4);
-// insertNode(heap, 6);
-// insertNode(heap, 2);
-// insertNode(heap, 3);
+// const heap = [6, 4, 5, 3, 1, 0, 2];
+// deleteNode(array);
+// const heap = [];
+// const heap = [6, 3, 4, 1, 2];
+// insertNode(heap, 7);
+// insertNode(heap, 8);
+// insertNode(heap, 4, heap.length);
+// insertNode(heap, 6, heap.length);
+// insertNode(heap, 2, heap.length);
+// insertNode(heap, 3, heap.length);
 // console.log(heap);
 // deleteNode(heap);
 // deleteNode(heap);
@@ -84,6 +95,6 @@ const buildHeap = (array, element) => {
 // console.log(heap);
 // insertNode(heap, 2);
 // insertNode(heap, 3);
-console.log(heap);
+// console.log(heap);
 
 
