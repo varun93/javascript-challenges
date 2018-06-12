@@ -1,9 +1,11 @@
-const binarySearch = (array, searchElement, lowerBound = 0, upperBound) => {
+const binarySearch = (array, searchElement, lowerBound, upperBound) => {
+  lowerBound = lowerBound || 0;
+  upperBound = upperBound || array.length - 1;
   if (lowerBound > upperBound) {
     return false;
   }
 
-  const midIndex = Math.floor((lowerBound + upperBound) / 2);
+  const midIndex = Math.floor(lowerBound  + (upperBound - lowerBound) / 2);
   const midElement = array[midIndex];
 
   if (searchElement === midElement) {
