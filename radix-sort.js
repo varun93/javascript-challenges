@@ -1,7 +1,5 @@
 const getNthDigit = (number, n) => {
-  for (let i = 0; i < n; i++) {
-    number = Math.floor(number / 10);
-  }
+  number >>= n;
   return number % 10;
 };
 
@@ -16,7 +14,7 @@ const extractElements = dictionary => {
 };
 
 const radixSort = array => {
-  let index = 0;
+  let index = 1;
   while (true) {
     const dictionary = array.reduce((dict, element) => {
       const digit = getNthDigit(element, index);
