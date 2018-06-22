@@ -12,21 +12,4 @@ const promisify = callback => arguments => {
   });
 };
 
-/**
- * Usage
- * 
- const readFileAsArray = async (file) => {
-  try {
-    const readFile = promisify(fs.readFile);
-    const data = await readFile([file]);
-    const lines = data
-      .toString()
-      .trim()
-      .split("\n");
-      return lines;
-    } catch (error) {
-    cb(null, error);
-  }
-};
-
- */
+module.exports = promisify;
