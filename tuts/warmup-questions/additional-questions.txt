@@ -1,0 +1,8 @@
+1.Given a graph, had to compute a list of how many cities 
+where at a hop distance away from a specific node
+
+2. Given a collection (matrix) of pixels you must find the size of the largest shape. 
+
+3. Given a string representing taken seats on a plane and a number N representing the rows on a plane, return the amount of seating arrangements for a family of 3. Seating between isles is not a possible arrangement. 
+The seating columns are as follows: ABC | DEFG | HJK.
+
