@@ -28,19 +28,17 @@ const deleteNode = (root, value) => {
   } else if (value > root.value) {
     root.right = deleteNode(root.right, value);
   } else {
-    if (root.left === null && root.right === null) {
-      return null;
-    } else if (root.left === null && root.right) {
+    if (root.left === null) {
       return root.right;
-    } else if (root.right === null && root.left) {
+    } else if (root.right === null) {
       return root.left;
     } else {
       let nextHighestNode = root.right;
-      while (nextHighestNode && nextHighestNode.left) {
+      while (nextHighestNode.left) {
         nextHighestNode = nextHighestNode.left;
       }
       root.value = nextHighestNode.value;
-      root.right = deleteNode(nextHighestNode, nextHighestNode.value);
+      root.right = deleteNode(root.right, nextHighestNode.value);
     }
   }
 
